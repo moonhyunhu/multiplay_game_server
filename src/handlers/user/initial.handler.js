@@ -2,12 +2,14 @@ import { addUser } from '../../session/user.session.js';
 import { HANDLER_IDS, RESPONSE_SUCCESS_CODE } from '../../constants/handlerIds.js';
 import { createResponse } from '../../utils/response/createResponse.js';
 import { handleError } from '../../utils/error/errorHandler.js';
+import { getGameSession } from '../../session/game.session.js';
 
-const initialHandler = async ({ socket, userId, payload }) => {
+const initialHandler = async ({ socket, payload }) => {
   try {
-    const { deviceId } = payload;
+    const { deviceId, playerId } = payload;
 
-    addUser(socket, deviceId);
+    addUser(socket, playerId, deviceId);
+    //console.log(getGameSession(1));
 
     // 유저 정보 응답 생성
     const initialResponse = createResponse(
@@ -20,7 +22,7 @@ const initialHandler = async ({ socket, userId, payload }) => {
     // 소켓을 통해 클라이언트에게 응답 메시지 전송
     socket.write(initialResponse);
   } catch (error) {
-    handleError(socket, error)
+    handleError(socket, error);
   }
 };
 

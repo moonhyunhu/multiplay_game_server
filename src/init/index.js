@@ -1,4 +1,5 @@
 // 서버 초기화 작업
+import { addGameSession } from '../session/game.session.js';
 import { loadGameAssets } from './assets.js';
 import { loadProtos } from './loadProtos.js';
 
@@ -6,6 +7,7 @@ const initServer = async () => {
   try {
     await loadGameAssets();
     await loadProtos();
+    await addGameSession();
     // 다음 작업
   } catch (e) {
     console.error(e);

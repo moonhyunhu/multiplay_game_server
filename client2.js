@@ -74,7 +74,7 @@ client.connect(PORT, HOST, async () => {
 
   const createGamePacket = createPacket(
     5,
-    { timestamp: Date.now()},
+    { timestamp: Date.now() },
     '1.0.0',
     'game',
     'JoinGamePayload',
