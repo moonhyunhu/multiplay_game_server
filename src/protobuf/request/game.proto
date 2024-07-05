@@ -17,3 +17,4 @@ message LocationUpdatePayload {
   float x = 1;         // 게임 ID (UUID)
   float y = 2;       // 게임 참가 시각
 }
+

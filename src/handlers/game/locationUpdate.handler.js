@@ -25,7 +25,10 @@ const LocationUpdateHandler = ({ socket, userId, payload }) => {
       gameSession.addUser(user);
     }
 
-    user.updatePosition(x,y);   
+    user.updatePosition(x,y); 
+    
+    const packet = gameSession.getExceptMePlayerLocation(userId);
+    socket.write(packet);
   } catch (error) {
     handleError(socket, error);
   }

@@ -48,9 +48,9 @@ export const onData = (socket) => async (data) => {
               payload,
             });
         }
-        if (getGameSession(1).users.length !== 0) {
-          console.log(getGameSession(1));
-        }
+        // if (getGameSession(1).users.length !== 0) {
+          // console.log(getGameSession(1));
+        // }
       } catch (error) {
         handleError(socket, error);
       }

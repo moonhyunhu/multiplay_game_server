@@ -1,3 +1,5 @@
+import { createLocationPacket } from '../../utils/notification/game.notification.js';
+
 const MAX_PLAYERS = 10;
 
 class Game {
@@ -35,6 +37,33 @@ class Game {
 
   startGame() {
     this.state = 'inProgress';
+  }
+
+  getAllplayerLocation() {
+    const allLocation = this.users.map((user) => {
+      return {
+        id: user.id,
+        playerId: user.playerId,
+        x: user.x,
+        y: user.y,
+      };
+    });
+    return createLocationPacket(allLocation);
+  }
+
+  getExceptMePlayerLocation(userId) {
+    const allLocation = this.users.map((user) => {
+      return {
+        id: user.id,
+        playerId: user.playerId,
+        x: user.x,
+        y: user.y,
+      };
+    });
+    
+    const exceptMeLocation = allLocation.filter((user) => user.id !== userId);
+    //console.log(exceptMeLocation)
+    return createLocationPacket(exceptMeLocation);
   }
 }
 
