@@ -22,10 +22,4 @@ export const getUserBySocket = (socket) => {
   return userSessions.find((user) => user.socket === socket);
 };
 
-// export const getNextSequence = (id) => {
-  // const user = getUserById(id);
-  // if (user) {
-    // return user.getNextSequence();
-  // }
-  // return null;
-// };
+

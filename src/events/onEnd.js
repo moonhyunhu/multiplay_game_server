@@ -4,7 +4,7 @@ import { getUserBySocket, removeUser } from '../session/user.session.js';
 
 export const onEnd = (socket) => () => {
   console.log('클라이언트 연결이 종료되었습니다.', socket.remoteAddress, socket.remotePort);
+  const endUser = getUserBySocket(socket);
+  //console.log(endUser);
   removeUser(socket);
-  console.log(userSessions);
-  console.log(getGameSession(1));
 };

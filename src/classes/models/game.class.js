@@ -16,11 +16,6 @@ class Game {
     this.users.push(user);
     this.startGame();
 
-    //if (this.users.length === MAX_PLAYERS) {
-    //  setTimeout(() => {
-    //    this.startGame();
-    //  }, 3000);
-    //}
   }
 
   getUser(userId) {
@@ -62,7 +57,6 @@ class Game {
     });
     
     const exceptMeLocation = allLocation.filter((user) => user.id !== userId);
-    //console.log(exceptMeLocation)
     return createLocationPacket(exceptMeLocation);
   }
 }

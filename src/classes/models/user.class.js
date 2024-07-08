@@ -1,7 +1,7 @@
 import { createPingPacket } from '../../utils/notification/game.notification.js';
 
 class User {
-  constructor(id,playerId, socket) {
+  constructor(id, playerId, socket) {
     this.id = id;
     this.playerId = playerId;
     this.socket = socket;
@@ -18,7 +18,7 @@ class User {
   }
 
   // getNextSequence() {
-    // return ++this.sequence;
+  // return ++this.sequence;
   // }
 
   ping() {
